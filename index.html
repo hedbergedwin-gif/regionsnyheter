@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regionsnyheter – Beredd BRF hjälper bostadsrättsföreningar att klara kriser</title>
+  <meta name="description" content="Reportage: Edwin och Martin, med bakgrund i fastighetsbranschen, startade Beredd BRF efter pandemin och kriget i Ukraina för att hjälpa BRF:er att bli mer robusta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2744;
+      --navy-light: #1a3a5c;
+      --red: #b91c1c;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --text: #0f172a;
+      --text-secondary: #475569;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --border-light: #f1f5f9;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow: 0 4px 12px rgba(15, 23, 42, 0.06);
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-bar {
+      background: var(--navy);
+      color: #94a3b8;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 0;
+    }
+
+    .top-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .top-bar a {
+      color: #cbd5e1;
+      text-decoration: none;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .top-bar a:hover { color: #fff; }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+    }
+
+    .logo {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .logo span { color: var(--red); }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav a.active { color: var(--navy); }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--red);
+      transition: width 0.2s ease;
+    }
+
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-search {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      color: var(--muted);
+      border-radius: 6px;
+    }
+
+    .btn-search:hover {
+      background: var(--border-light);
+      color: var(--navy);
+    }
+
+    .btn-subscribe {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--navy);
+      color: white;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .btn-subscribe:hover { background: var(--navy-light); }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .article-header {
+      padding: 48px 0 32px;
+      max-width: 760px;
+    }
+
+    .breadcrumb {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breadcrumb a {
+      color: var(--muted);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .breadcrumb a:hover { color: var(--red); }
+
+    .category {
+      display: inline-flex;
+      background: #fef2f2;
+      color: var(--red);
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: clamp(28px, 4.5vw, 40px);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .meta {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 20px;
+    }
+
+    .meta strong { color: var(--text); font-weight: 600; }
+
+    .meta-divider {
+      width: 3px;
+      height: 3px;
+      background: var(--border);
+      border-radius: 50%;
+    }
+
+    .hero {
+      margin-bottom: 12px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: linear-gradient(145deg, #0f2744 0%, #1e3a5f 50%, #0f2744 100%);
+      position: relative;
+    }
+
+    .hero-inner {
+      min-height: 380px;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+      position: relative;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(185, 28, 28, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 40%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 520px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .hero-content h2 {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-content p {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    .caption {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 48px;
+      padding-bottom: 64px;
+      align-items: start;
+    }
+
+    .content {
+      font-size: 18.5px;
+      max-width: 680px;
+    }
+
+    .content .lead {
+      font-size: 20px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 28px;
+      padding-left: 20px;
+      border-left: 3px solid var(--red);
+    }
+
+    .content p { margin-bottom: 22px; }
+
+    .content h2 {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 40px 0 16px;
+    }
+
+    .quote {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-left: 4px solid var(--navy);
+      padding: 28px 32px;
+      margin: 36px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      position: relative;
+    }
+
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      font-size: 64px;
+      font-family: Georgia, serif;
+      color: var(--border);
+      line-height: 1;
+      opacity: 0.6;
+    }
+
+    .quote p {
+      font-size: 20px;
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.55;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .quote cite {
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 600;
+      color: var(--muted);
+      display: block;
+    }
+
+    .sidebar {
+      font-family: Inter, system-ui, sans-serif;
+      position: sticky;
+      top: 88px;
+    }
+
+    .sidebar-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .sidebar-card h3 {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fact-list { list-style: none; }
+
+    .fact-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--text-secondary);
+      display: flex;
+      gap: 10px;
+    }
+
+    .fact-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .fact-list li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+
+    .related-list a {
+      display: block;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-light);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .related-list a:hover { color: var(--red); }
+    .related-list a:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .contact-box {
+      background: linear-gradient(145deg, var(--navy) 0%, #1a3a5c 100%);
+      color: white;
+      border: none;
+    }
+
+    .contact-box h3 {
+      color: #94a3b8;
+      border-bottom-color: rgba(255,255,255,0.1);
+    }
+
+    .contact-box p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: #cbd5e1;
+    }
+
+    .contact-box strong {
+      color: white;
+      display: block;
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #94a3b8;
+      font-family: Inter, system-ui, sans-serif;
+      font-size: 14px;
+      padding: 56px 0 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand .logo {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 12px;
+      display: inline-flex;
+    }
+
+    .footer-brand p {
+      max-width: 280px;
+      line-height: 1.6;
+      font-size: 13.5px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+    }
+
+    .footer-col a {
+      display: block;
+      color: #94a3b8;
+      text-decoration: none;
+      padding: 5px 0;
+      font-size: 13.5px;
+      cursor: pointer;
+    }
+
+    .footer-col a:hover { color: white; }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    #error-view {
+      display: none;
+      min-height: 70vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 64px 24px;
+      text-align: center;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    #error-view.visible {
+      display: flex;
+    }
+
+    #article-view.hidden {
+      display: none;
+    }
+
+    .error-code {
+      font-size: 96px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      letter-spacing: -4px;
+      margin-bottom: 12px;
+      opacity: 0.15;
+    }
+
+    #error-view h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    #error-view p {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 420px;
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: var(--navy);
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .btn-back:hover { background: var(--navy-light); }
+
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: 1fr; gap: 40px; }
+      .sidebar { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      nav { display: none; }
+      .hero-inner { min-height: 300px; padding: 28px; }
+    }
+
+    @media (max-width: 560px) {
+      .header-inner { padding: 12px 0; }
+      .article-header { padding: 32px 0 24px; }
+      h1 { font-size: 26px; }
+      .content { font-size: 17px; }
+      .content .lead { font-size: 18px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .btn-subscribe { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <span>Måndag 17 mars 2025</span>
+      <div>
+        <a class="go-error">Väder</a>
+        <a class="go-error">Trafik</a>
+        <a class="go-error">Nyhetsbrev</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="header-inner">
+        <a class="logo go-home">Regions<span>nyheter</span></a>
+        <nav>
+          <a class="go-error active">Nyheter</a>
+          <a class="go-error">Bostad</a>
+          <a class="go-error">Näringsliv</a>
+          <a class="go-error">Samhälle</a>
+          <a class="go-error">Kultur</a>
+          <a class="go-error">Sport</a>
+        </nav>
+        <div class="header-actions">
+          <button class="btn-search go-error" aria-label="Sök">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            </svg>
+          </button>
+          <button class="btn-subscribe go-error">Prenumerera</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="article-view">
+    <main>
+      <div class="container">
+        <div class="article-header">
+          <div class="breadcrumb">
+            <a class="go-error">Startsida</a>
+            <span>›</span>
+            <a class="go-error">Bostad</a>
+            <span>›</span>
+            <span>Reportage</span>
+          </div>
+          <span class="category">Reportage · Bostad</span>
+          <h1>Efter pandemin och kriget i Ukraina: Nu hjälper Edwin och Martin Sveriges BRF:er att bli beredda</h1>
+          <div class="meta">
+            <div class="meta-item"><strong>Regionsnyheter</strong></div>
+            <span class="meta-divider"></span>
+            <div class="meta-item">17 mars 2025</div>
+            <span class="meta-divider"></span>
+            <div class="meta-item">6 minuters läsning</div>
+          </div>
+        </div>
+
+        <div class="hero">
+          <div class="hero-inner">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="hero-badge">Beredd BRF</div>
+              <h2>Edwin & Martin</h2>
+              <p>Från fastighetsbranschen till krisberedskap för bostadsrättsföreningar</p>
+            </div>
+          </div>
+        </div>
+        <p class="caption">Edwin och Martin startade Beredd BRF för att ge bostadsrättsföreningar konkreta verktyg att hantera kriser – från elavbrott till långvariga störningar i samhället.</p>
+
+        <div class="article-layout">
+          <article class="content">
+            <p class="lead">
+              När pandemin slog till och sedan Ryssland invaderade Ukraina insåg två killar med bakgrund i fastighetsbranschen att många bostadsrättsföreningar stod oförberedda. Resultatet blev Beredd BRF – ett initiativ som hjälper föreningar att bygga robusthet inför framtida kriser.
+            </p>
+
+            <p>
+              Edwin och Martin har båda jobbat i fastighetsbranschen under flera år. De har sett hur bostadsrättsföreningar hanterar underhåll, ekonomi och tekniska system – men också hur sårbara många föreningar är när det oförutsedda händer.
+            </p>
+
+            <p>
+              – Under pandemin märkte vi att det saknades strukturer. Folk visste inte vem som skulle göra vad om något allvarligt hände. När sedan kriget i Ukraina bröt ut blev det ännu tydligare att Sverige behöver höja beredskapen även på lokal nivå, säger Edwin.
+            </p>
+
+            <p>
+              Det var där idén till <strong>Beredd BRF</strong> föddes. Namnet är medvetet rakt: föreningarna ska helt enkelt bli beredda.
+            </p>
+
+            <h2>Från teori till praktisk hjälp</h2>
+
+            <p>
+              Beredd BRF riktar sig till styrelser i bostadsrättsföreningar. Fokus ligger på konkreta åtgärder snarare än långa rapporter. Det kan handla om allt från att ha en uppdaterad krishanteringsplan och tydliga roller, till att se över reservkraft, vatten, kommunikation och hur man tar hand om särskilt utsatta medlemmar.
+            </p>
+
+            <div class="quote">
+              <p>Många styrelser vill göra rätt, men de vet inte var de ska börja. Vi hjälper dem att ta de första stegen och bygga en beredskap som faktiskt fungerar i praktiken.</p>
+              <cite>— Martin, medgrundare av Beredd BRF</cite>
+            </div>
+
+            <p>
+              Martin berättar att de ofta möter föreningar som har bra intentioner men saknar tid och kunskap. Genom workshops, checklistor och uppföljning får styrelserna verktyg de kan använda direkt.
+            </p>
+
+            <h2>Erfarenhet från fastighetsbranschen ger tyngd</h2>
+
+            <p>
+              Både Edwin och Martin har arbetat nära fastighetsägare och förvaltare. Den erfarenheten gör att de förstår hur en BRF fungerar – både ekonomiskt och organisatoriskt.
+            </p>
+
+            <p>
+              – Vi pratar samma språk som styrelserna. Vi vet vilka beslut som är realistiska att fatta och hur man får med sig medlemmarna, säger Edwin.
+            </p>
+
+            <p>
+              De understryker att beredskap inte behöver vara dramatiskt eller dyrt. Det handlar ofta om att systematisera det man redan gör, dokumentera ansvar och öva lite då och då.
+            </p>
+
+            <h2>En växande efterfrågan</h2>
+
+            <p>
+              Intresset för krisberedskap har ökat markant de senaste åren. MSB:s råd om hemberedskap, diskussioner om civilförsvar och det säkerhetspolitiska läget har gjort att fler föreningar tar frågan på allvar.
+            </p>
+
+            <p>
+              Beredd BRF märker det tydligt. Fler styrelser hör av sig och vill ha stöd. Edwin och Martin hoppas att deras arbete kan bidra till att fler bostadsrättsföreningar står starkare när nästa kris kommer – oavsett om det handlar om ett längre elavbrott, störningar i leveranskedjor eller något annat oförutsett.
+            </p>
+
+            <p>
+              – Det handlar inte om att skrämma någon. Det handlar om att vara förberedd. Och det är något varje förening kan ta tag i, avslutar Martin.
+            </p>
+          </article>
+
+          <aside class="sidebar">
+            <div class="sidebar-card">
+              <h3>Fakta · Beredd BRF</h3>
+              <ul class="fact-list">
+                <li>Grundat av Edwin och Martin</li>
+                <li>Bakgrund i fastighetsbranschen</li>
+                <li>Idén växte fram efter pandemin och Rysslands invasion av Ukraina</li>
+                <li>Hjälper bostadsrättsföreningar med praktisk krisberedskap</li>
+                <li>Fokus på planer, roller, övning och konkreta åtgärder</li>
+              </ul>
+            </div>
+
+            <div class="sidebar-card">
+              <h3>Relaterat</h3>
+              <div class="related-list">
+                <a class="go-error">Så förbereder du dig för ett längre elavbrott</a>
+                <a class="go-error">MSB: Hemberedskap – det här behöver du ha hemma</a>
+                <a class="go-error">Fler BRF:er tar tag i säkerhetsfrågorna</a>
+                <a class="go-error">Civil beredskap blir allt viktigare i bostadsområden</a>
+              </div>
+            </div>
+
+            <div class="sidebar-card contact-box">
+              <h3>Kontakt</h3>
+              <p>Vill din bostadsrättsförening veta mer om hur ni kan bli mer beredda?</p>
+              <strong>Beredd BRF</strong>
+              <p style="margin-top: 4px; opacity: 0.8;">Via Regionsnyheter</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="error-view">
+    <div class="error-code">404</div>
+    <h1>Sidan kunde inte hittas</h1>
+    <p>
+      Tyvärr finns den här sidan inte. Den kan ha flyttats, tagits bort eller så har du klickat på en länk som inte leder någonstans.
+    </p>
+    <button class="btn-back go-home">Tillbaka till artikeln</button>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="logo go-home">Regions<span style="color:#f87171">nyheter</span></a>
+          <p>Lokal och regional journalistik. Vi granskar, berättar och ger dig nyheterna som påverkar din vardag.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Sektioner</h4>
+          <a class="go-error">Nyheter</a>
+          <a class="go-error">Bostad</a>
+          <a class="go-error">Näringsliv</a>
+          <a class="go-error">Samhälle</a>
+          <a class="go-error">Kultur</a>
+        </div>
+        <div class="footer-col">
+          <h4>Om oss</h4>
+          <a class="go-error">Kontakta redaktionen</a>
+          <a class="go-error">Tipsa oss</a>
+          <a class="go-error">Annonsera</a>
+          <a class="go-error">Integritetspolicy</a>
+        </div>
+        <div class="footer-col">
+          <h4>Följ oss</h4>
+          <a class="go-error">Nyhetsbrev</a>
+          <a class="go-error">Facebook</a>
+          <a class="go-error">X / Twitter</a>
+          <a class="go-error">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 Regionsnyheter. Alla rättigheter förbehållna.</span>
+        <span>Fiktiv nyhetssajt skapad för demonstration.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const articleView = document.getElementById('article-view');
+    const errorView = document.getElementById('error-view');
+
+    function showError() {
+      articleView.classList.add('hidden');
+      errorView.classList.add('visible');
+      window.scrollTo(0, 0);
+    }
+
+    function showArticle() {
+      errorView.classList.remove('visible');
+      articleView.classList.remove('hidden');
+      window.scrollTo(0, 0);
+    }
+
+    document.querySelectorAll('.go-error').forEach(el => {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        showError();
+      });
+    });
+
+    document.querySelectorAll('.go-home').forEach(el => {
+      el.addEventListener('click', function(e) {
+        e.preventDefault();
+        showArticle();
+      });
+    });
+  </script>
+
+</body>
+</html>
